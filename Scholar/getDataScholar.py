@@ -115,7 +115,7 @@ def data_profile(link):
     
     # driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options,)
     # driver = webdriver.Edge(EdgeChromiumDriverManager().install())
-    driver = webdriver.Chrome(executable_path='chromedriver',  chrome_options=options)
+    driver = webdriver.Chrome(executable_path='usr/local/bin/chromedriver',  chrome_options=options)
     # driver = webdriver.Firefox()
     driver.get(str(link))
     # driver.execute_script("arguments[0].click();", WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked rc-anchor-checkbox']/div[@class='recaptcha-checkbox-checkmark']"))))
@@ -271,7 +271,7 @@ def data_scrap(link,user):
     vdisplay.start()
 
     # driver = webdriver.Firefox();
-    driver = webdriver.Chrome(executable_path='chromedriver',  chrome_options=options)
+    driver = webdriver.Chrome(executable_path='usr/local/bin/chromedriver',  chrome_options=options)
     driver.get(str(link))
     time.sleep(1)
 
