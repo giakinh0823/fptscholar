@@ -433,9 +433,9 @@ def data_scrap(link,user):
     print("PROCESS ENDED.")
     # input("Press Enter to continue...")
     '''
-    print("-----------------------------------------------")
-    print("Your file is ready! Check " + author_name.text)
-    print("-----------------------------------------------")
+    # print("-----------------------------------------------")
+    # print("Your file is ready! Check " + author_name.text)
+    # print("-----------------------------------------------")
     print("PROCESS ENDED.")
 
 
