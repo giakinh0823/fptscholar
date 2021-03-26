@@ -66,6 +66,7 @@ from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+from pyvirtualdisplay import Display
 from ftfy import fix_encoding
 import numpy as np
 
@@ -101,13 +102,20 @@ def data_profile(link):
     # options.add_argument('headless')
     # options.add_argument('window-size=1920x1080')
     # options.add_argument("disable-gpu")
+    display = Display(visible=0, size=(800, 600))
+    display.start()
     
     options = webdriver.ChromeOptions() 
-    options.add_argument("start-maximized")
+    # options.add_argument("start-maximized")
     # options.add_argument('disable-infobars')
+    options.add_argument('--headless')
+    options.add_extension("proxy.zip")
+
     
-    driver = webdriver.Chrome(ChromeDriverManager().install(),options=options,)
+    # driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options,)
     # driver = webdriver.Edge(EdgeChromiumDriverManager().install())
+    driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver',  chrome_options=options)
+
     driver.get(str(link))
     # driver.execute_script("arguments[0].click();", WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked rc-anchor-checkbox']/div[@class='recaptcha-checkbox-checkmark']"))))
 
@@ -180,6 +188,7 @@ def data_profile(link):
             break
             
     driver.close()
+    display.close()
     # print(list_of_name)
     # print(list_of_link)
     # print(list_of_avatar)
@@ -245,9 +254,17 @@ def data_scrap(link,user):
     # options.add_argument('window-size=1920x1080')
     # options.add_argument("disable-gpu")
     
+    display = Display(visible=0, size=(800, 600))
+    display.start()
+    
     options = webdriver.ChromeOptions() 
-    options.add_argument("start-maximized")
-    driver = webdriver.Chrome(ChromeDriverManager().install(),  chrome_options=options)
+    # options.add_argument("start-maximized")
+    options.add_argument('--headless')
+    options.add_extension("proxy.zip")
+
+    
+    # driver = webdriver.Chrome(ChromeDriverManager().install(),  chrome_options=options)
+    driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver',  chrome_options=options)
     driver.get(str(link))
     time.sleep(1)
 
@@ -406,6 +423,8 @@ def data_scrap(link,user):
             button1.click()
         
     driver.close()
+    
+    display.stop()
     '''
     for x in range(0, len(list_of_articles)):
         print(list_of_articles)
@@ -433,9 +452,9 @@ def data_scrap(link,user):
     print("PROCESS ENDED.")
     # input("Press Enter to continue...")
     '''
-    # print("-----------------------------------------------")
-    # print("Your file is ready! Check " + author_name.text)
-    # print("-----------------------------------------------")
+    print("-----------------------------------------------")
+    print("Your file is ready! Check " + author_name.text)
+    print("-----------------------------------------------")
     print("PROCESS ENDED.")
 
 
