@@ -58,6 +58,8 @@ ALLOWED_HOSTS = ['127.0.0.1', 'fpthanoischolar.azurewebsites.net']
 
 # Application definition
 
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,7 +79,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 ]
 
-
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
@@ -95,9 +96,23 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = "none"
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+# ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+DEFAULT_HTTP_PROTOCOL = "https"
+
+
+
+
 #id admin
-SITE_ID = 3
 SITE_ID = 4
+SITE_ID = 3
+SITE_ID = 5
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,6 +138,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -315,3 +331,5 @@ EMAIL_HOST_PASSWORD = 'giakinh0823'
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+

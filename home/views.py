@@ -58,4 +58,7 @@ def home(request):
             profile.avatar.save(name_image, content, save=True)
             profile.save()
             request.session['user'] = { 'image': profile.avatar.url }
+        else:
+            profile = UserProfile.objects.get(user = request.user)
+            request.session['user'] = { 'image': profile.avatar.url }
     return render(request, 'home/index.html')   
