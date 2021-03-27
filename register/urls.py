@@ -3,6 +3,10 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView
+from django.contrib.auth.views import LogoutView
+from django.urls import path, include
+
 
 
 app_name = 'register'
@@ -10,7 +14,7 @@ app_name = 'register'
 urlpatterns = [
     path('signup/', views.signup, name ='signup'),
     path('login/', views.loginuser, name ='login'),
-    path('logout/', views.logoutuser, name='logout'),
+    path('logout/', views.logoutuser, name='logout'), 
     path('profile/', views.profile, name='profile'),
     path('profile/addArticle/', views.addArticle, name='addArticle'),
     path('profile/searchCoauthor/', views.searchCoauthor, name='searchCoauthor'),

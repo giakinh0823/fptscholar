@@ -15,6 +15,11 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from urllib.parse import urlparse
+import urllib.request as urllib2
+from django.core.files import File
+from django.core.files.base import ContentFile
+import io
 
 
 #update data
@@ -172,7 +177,6 @@ def setCoAuthor(request, profile):
 
 @login_required
 def profile(request):
-        
     profile = UserProfile.objects.get(user = request.user)
     profilelist = UserProfile.objects.all()
     articles = Article.objects.filter(user = request.user)
@@ -311,7 +315,7 @@ def profiledetail(request, profile_pk):
     try:
         articles = paginator.page(pageNumber)
     except PageNotAnInteger:
-        articles = paginator.page(1)
+        articles = paginator.page(1)    
     except EmptyPage:
         articles = paginator.page(paginator.num_pages)
     return render(request, 'register/profiledetail.html', {'profile': profile, 'articles': articles, 'labels': labels,'data': data,'labeltitle':labeltitle[:100], 'datatitle':datatitle[:100],  'authorlist': authorlist, 'totalCitations': totalCitations, 'totalCitationsSince': totalCitationsSince})

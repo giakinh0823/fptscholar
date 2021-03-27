@@ -1,3 +1,5 @@
+from pickle import GLOBAL
+from tarfile import NUL
 from django.contrib.auth.models import User
 from django.http.response import JsonResponse
 from django.shortcuts import render
@@ -8,6 +10,12 @@ from register.models import UserProfile
 from asgiref.sync import sync_to_async
 
 import time
+
+from urllib.parse import urlparse
+import urllib.request as urllib2
+from django.core.files import File
+from django.core.files.base import ContentFile
+import io
 
 
 
@@ -34,4 +42,20 @@ def home(request):
     #    
     # for x in str:
     #     data_profile('https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors='+x)
+    global profile
+    if request.user.is_authenticated: 
+        try:
+            profile = UserProfile.objects.get(user = request.user)
+        except:
+            profile = None   
+        # print(profile)
+        if profile == None:
+            profile == UserProfile(user = request.user, name = request.user.get_full_name(), Affiliation=request.user.email, EmailForVerification = 'Verified email at fpt.edu.vn').save()
+            profile = UserProfile.objects.get(user = request.user)
+            img_url='https://sqlvan3doctgbfyraq.blob.core.windows.net/vulnerability-assessment/media/images/avatar_scholar_56_WcEBGcd.png'
+            name_image = str(request.user)
+            content = io.BytesIO(urllib2.urlopen(img_url).read())
+            profile.avatar.save(name_image, content, save=True)
+            profile.save()
+            request.session['user'] = { 'image': profile.avatar.url }
     return render(request, 'home/index.html')   

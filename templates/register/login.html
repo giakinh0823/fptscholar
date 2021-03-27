@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %} {% block body %}
 {% load static %}
+{% load socialaccount %}
 
 
 
@@ -21,6 +22,7 @@
     <input type="password" name="password" autocomplete="current-password"  required id="id_password" class="form-control button--outline--primary">
   </div>
   <a href="{% url 'register:signup' %}" class="mb-3" style="text-decoration: none; color: #212529; font-size: 16px ;color:orangered;">Signup here</a>
+  <a href="{% provider_login_url 'google' %}" class="mb-3" style="text-decoration: none; color: #212529; font-size: 16px ;color:orangered;">Login with google</a>
   <button type="submit" class="btn button-primary-orangered">login</button>
 </form>
 
