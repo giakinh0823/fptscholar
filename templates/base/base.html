@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load socialaccount %}
+
 
 <head>
     <meta charset="UTF-8">
@@ -102,7 +104,41 @@
                 </div>
         </div>
     </nav>
+    
     {% block body %} {% endblock body %}
+
+    <section class="" style="margin-top: 200px;">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: orangered;">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0">
+            <!-- Section: CTA -->
+            <section class="">
+              <p class="d-flex justify-content-center align-items-center">
+                {% if user.is_authenticated %}
+                <span class="me-3">{{user}}</span>
+                {% else %}
+                <span class="me-3">Register for free</span>
+                <a href="{% provider_login_url 'google' %}" type="button" class="btn btn-outline-light btn-rounded">
+                  Sign up!
+                </a>
+                {%endif%}
+              </p>
+            </section>
+            <!-- Section: CTA -->
+          </div>
+          <!-- Grid container -->
+      
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-white" href="https://hanoi.fpt.edu.vn/">FPT University</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+      </section>
+
     <!-- jQuery -->
     <script type="text/javascript">
         window.CSRF_TOKEN = "{{ csrf_token }}";
