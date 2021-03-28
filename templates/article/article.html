@@ -31,11 +31,11 @@
     {% if articles %}
     <div class="list-group">
         {% for article in articles %}
-        <a type="button" data-bs-toggle="modal" data-bs-target="#article-{{article.id}}" class="list-group-item list-group-item-action " style="display:block;min-height:160px">
+        <a type="button" data-bs-toggle="modal" data-bs-target="#article-{{article.id}}" class="list-group-item list-group-item-action " style="display:block;min-height:80px; border: none!important;">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{article.title}}</h5>
                 {% if article.date_created %}
-                <small>{{article.date_created}}</small>
+                <small>Last update: {{article.date_created}}</small>
                 {% endif %}
             </div>
             {% if article.author %}
@@ -162,7 +162,7 @@
                                         Scholar articles
                                     </div>
                                     <div class="col-8">
-                                        <a href="" style="text-decoration: none; color:orangered">{{article.title}}</a>
+                                        <a href="{{article.url}}" style="text-decoration: none; color:orangered" target="_blank">{{article.title}}</a>
                                         <p style="margin: 0">{{article.author}}</p>
                                     </div>
                                 </div>

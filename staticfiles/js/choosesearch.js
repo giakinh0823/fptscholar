@@ -5,7 +5,8 @@ $(document).ready(function() {
         if ($('#headerhome').text() == "Article") {
             $('#id_name').attr({ "id": "search", 'name': 'search', })
             $('#homeSearchForm').attr("action", $('#radioArticle').val())
-            $('#searchsmall').css("right", "30%")
+            $('#searchsmall').css("right", "25%")
+            $('#searchsmall').text("Article/Profile")
         }
     })
     $('#radioUser').click(function() {
@@ -15,6 +16,7 @@ $(document).ready(function() {
             $('#search').attr({ "id": "id_name", 'name': 'name', })
             $('#homeSearchForm').attr("action", $('#radioUser').val())
             $('#searchsmall').css("right", "35%")
+            $('#searchsmall').text("Profile")
         }
     })
 })
