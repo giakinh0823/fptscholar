@@ -22,6 +22,7 @@ from django.core.files.base import ContentFile
 import io
 
 
+
 #update data
 
 from article.models import Article
@@ -371,6 +372,7 @@ def getdataArticle(request):
             if 'scholar.google.com' in str(profile.homepage):
                 data_scrap(profile.homepage, profile.user)
 
+
 def updateData(request):
     getdataProfile(request)
     return redirect('register:profile')
@@ -378,6 +380,8 @@ def updateData(request):
 def updateArticle(request):
     getdataArticle(request)
     return redirect('register:profile')
+
+
 
     
     

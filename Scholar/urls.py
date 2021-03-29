@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls.conf import include
+from django.urls.conf import include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -31,6 +31,8 @@ urlpatterns = [
     #home
     path('', include('article.urls')),
     
+    #progress
+   
     #google
     path('accounts/', include('allauth.urls')),
     path('logout', LogoutView.as_view()),

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# import build-in packages
 import time
 import os
 from pandas.core.tools.datetimes import to_datetime
@@ -80,8 +78,8 @@ from selenium.webdriver.common.keys import Keys
 
 #https://automation.lambdatest.com/
 
-username = "giakinhfullstack" # Replace the username
-access_key = "pmkWJcII2jVdEf4zDM1kUzz05gyEY9qu1JVQ9lFwHtyWiWdQI1" # Replace the access key
+username = "giakinh2000" # Replace the username
+access_key = "UPir7CR6eAkarWjGwwoMV3K6LicHgyq8M6pw2a7mV9gKxB7T70" # Replace the access key
 
 desired_caps = {
             "build": 'PyunitTest sample build', # Change your build name here
@@ -446,20 +444,17 @@ def data_scrap(link,user):
     '''
     for x in range(0, len(list_of_articles)):
         print(list_of_articles)
-
     # Create dataframe
     df = pd.DataFrame(
         list(zip(list_of_articles, list_of_authors, list_of_publication_date, list_of_book,
                  list_of_journals, list_of_volume, list_of_issue, list_of_conferences, list_of_pages, list_of_publisher, list_of_description, list_of_citation, list_of_year, list_of_pdf)),
         columns=['Article', 'Author', 'Publication date', 'Book', 'Journal',
                  'Volume', 'Issue', 'Conference', 'Page', 'Publisher', 'Description', 'Total citations', 'Year', 'Url'])
-
     # Fix unicode errors
     df['Article'] = df['Article'].map(lambda x: fix_encoding(x))
     df['Conference'] = df['Conference'].map(lambda x: fix_encoding(x))
     df['Journal'] = df['Journal'].map(lambda x: fix_encoding(x))
     df['Publication date'] = pd.to_datetime(df['Publication date'], errors='coerce')
-
     # Output
     df.to_csv('Citation_latest.csv', index=False)
     file_name = author_name.text + ".csv"

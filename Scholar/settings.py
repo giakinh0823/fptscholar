@@ -153,7 +153,7 @@ WSGI_APPLICATION = 'Scholar.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
 #     }
 # }
 
@@ -175,21 +175,7 @@ WSGI_APPLICATION = 'Scholar.wsgi.application'
 #     },
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'dataScholarFPT',
-#         'USER': 'giakinh0823',
-#         'PASSWORD': 'Danhancach0823',
-#         'HOST': 'tcp:database-giakinh.database.windows.net',
-#         'PORT': '',
-#         'OPTIONS': {
-#             'unicode_results':True,
-#             'extra_params': 'ClientCharset=utf8',
-#             'driver': 'ODBC Driver 17 for SQL Server',
-#         },
-#     },
-# }
+
 
 
 DATABASES = {

@@ -16,27 +16,45 @@ function getCookieSaveUpdateData(name) {
 const csrftokenSaveUpdateData = getCookieSaveUpdateData('csrftoken');
 
 $(document).on('click','#updateDataButton', function() {
-    alert("Updating")
+    $('#progress-bar').addClass('progress-bar-animated')
+    $('#progress-bar').addClass('bg-success')
+    $('#progress-bar').addClass('progress-bar-striped')
+    $('#progress-bar').removeClass('bg-warning')
+    $('#progress-bar').removeClass('bg-danger')
+    $('#progress-bar').text('Done')
     $.ajax({
         type: 'GET',
         url: 'updateData/',
         data: '',
         dataType: 'json',
         success: function(data, textStatus, jqXHR) {
-            alert("ok")
+            $('#progress-bar').removeClass('progress-bar-animated')
+            $('#progress-bar').removeClass('bg-success')
+            $('#progress-bar').removeClass('progress-bar-striped')
+            $('#progress-bar').addClass('bg-warning')
+            $('#progress-bar').text('Get Profile')
         },
     })
 });
 
 $(document).on('click','#updateArticleButton', function() {
-    alert("Updating")
+    $('#progress-bar').addClass('progress-bar-animated')
+    $('#progress-bar').addClass('bg-danger')
+    $('#progress-bar').addClass('progress-bar-striped')
+    $('#progress-bar').removeClass('bg-warning')
+    $('#progress-bar').removeClass('bg-success')
+    $('#progress-bar').text('Get Article')
     $.ajax({
         type: 'GET',
         url: 'updateArticle/',
         data: '',
         dataType: 'json',
         success: function(data, textStatus, jqXHR) {
-            alert("ok")
+            $('#progress-bar').removeClass('progress-bar-animated')
+            $('#progress-bar').removeClass('bg-danger')
+            $('#progress-bar').removeClass('progress-bar-striped')
+            $('#progress-bar').addClass('bg-warning')
+            $('#progress-bar').text('Done')
         },
     })
 });

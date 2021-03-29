@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LogoutView
-from django.urls import path, include
+from django.urls import path, include, re_path
 
 
 
@@ -24,6 +24,8 @@ urlpatterns = [
     #update data
     path('profile/updateData/', views.updateData, name='updateData'),
     path('profile/updateArticle/', views.updateArticle, name='updateArticle'),
+    
+    #test
 ]
 urlpatterns += staticfiles_urlpatterns()
 # urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
