@@ -185,7 +185,7 @@ DATABASES = {
         'USER': 'giakinh0823',
         'PASSWORD': 'Danhancach0823',
         'HOST': 'tcp:giakinh0823.database.windows.net',
-        'PORT': '',
+        'PORT': '1433',
         'OPTIONS': {
             'unicode_results':True,
             'extra_params': 'ClientCharset=utf8',
