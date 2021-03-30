@@ -177,7 +177,25 @@ WSGI_APPLICATION = 'Scholar.wsgi.application'
 
 
 
+#windown
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'FPTScholar',
+#         'USER': 'giakinh0823',
+#         'PASSWORD': 'Danhancach0823',
+#         'HOST': 'tcp:giakinh0823.database.windows.net',
+#         'PORT': '1433',
+#         'OPTIONS': {
+#             'unicode_results':True,
+#             'extra_params': 'ClientCharset=utf8',
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         },
+#     },
+# }
+
+#linux
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
@@ -187,8 +205,10 @@ DATABASES = {
         'HOST': 'tcp:giakinh0823.database.windows.net',
         'PORT': '1433',
         'OPTIONS': {
-            'unicode_results':True,
-            'extra_params': 'ClientCharset=utf8',
+            'host_is_server': True,
+            'autocommit': True,
+            'unicode_results': True,
+            'extra_params': 'tds_version=8.0',
             'driver': 'ODBC Driver 17 for SQL Server',
         },
     },
