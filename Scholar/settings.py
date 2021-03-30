@@ -92,10 +92,12 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
         'AUTH_PARAMS': {
             'access_type': 'online',
+            # 'hd': 'fpt.edu.vn',
         }
     }
 }
 
+SOCIALACCOUNT_ADAPTER = 'Scholar.myAdapter.MySocialAccountAdapter'
 
 
 ACCOUNT_USERNAME_REQUIRED = False
@@ -103,8 +105,12 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 SOCIALACCOUNT_QUERY_EMAIL = True
 
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
-DEFAULT_HTTP_PROTOCOL = "https"
+
+# azure webapp
+# ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+# DEFAULT_HTTP_PROTOCOL = "https"
+
+
 
 
 
@@ -205,10 +211,7 @@ DATABASES = {
         'HOST': 'tcp:giakinh0823.database.windows.net',
         'PORT': '1433',
         'OPTIONS': {
-            'host_is_server': True,
-            'autocommit': True,
             'unicode_results': True,
-            'extra_params': 'tds_version=8.0',
             'driver': 'ODBC Driver 17 for SQL Server',
         },
     },
