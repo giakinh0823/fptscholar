@@ -118,8 +118,8 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 # azure webapp
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
-DEFAULT_HTTP_PROTOCOL = "https"
+# ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+# DEFAULT_HTTP_PROTOCOL = "https"
 
 
 
@@ -127,8 +127,8 @@ DEFAULT_HTTP_PROTOCOL = "https"
 
 
 #id admin
-SITE_ID = 3
 SITE_ID = 7
+# SITE_ID = 3
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
