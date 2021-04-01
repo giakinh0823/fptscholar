@@ -34,7 +34,7 @@ SECRET_KEY = '+x4!f602mag83_ul4jez)x$h+bh^&#dh51x@ow(s3@1u@46-g6'
 
 # ALLOWED_HOSTS = []
 
-DEBUG =  True
+DEBUG =  False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'fptscholarhanoi.azurewebsites.net']
 
@@ -118,8 +118,8 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 # azure webapp
-# ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
-# DEFAULT_HTTP_PROTOCOL = "https"
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+DEFAULT_HTTP_PROTOCOL = "https"
 
 
 
