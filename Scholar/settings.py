@@ -79,9 +79,20 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 ]
 
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_POST = '587'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'giakinhfullstack@gmail.com'
+EMAIL_HOST_PASSWORD = 'giakinh0823'
+
+
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -185,23 +196,6 @@ WSGI_APPLICATION = 'Scholar.wsgi.application'
 
 #windown
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'FPTScholar',
-#         'USER': 'giakinh0823',
-#         'PASSWORD': 'Danhancach0823',
-#         'HOST': 'tcp:giakinh0823.database.windows.net',
-#         'PORT': '1433',
-#         'OPTIONS': {
-#             'unicode_results':True,
-#             'extra_params': 'ClientCharset=utf8',
-#             'driver': 'ODBC Driver 17 for SQL Server',
-#         },
-#     },
-# }
-
-#linux
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
@@ -211,11 +205,28 @@ DATABASES = {
         'HOST': 'tcp:giakinh0823.database.windows.net',
         'PORT': '1433',
         'OPTIONS': {
-            'unicode_results': True,
+            'unicode_results':True,
+            'extra_params': 'ClientCharset=utf8',
             'driver': 'ODBC Driver 17 for SQL Server',
         },
     },
 }
+
+#linux
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'FPTScholar',
+#         'USER': 'giakinh0823',
+#         'PASSWORD': 'Danhancach0823',
+#         'HOST': 'tcp:giakinh0823.database.windows.net',
+#         'PORT': '1433',
+#         'OPTIONS': {
+#             'unicode_results': True,
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         },
+#     },
+# }
 
 # set this to False if you want to turn off pyodbc's connection pooling
 DATABASE_CONNECTION_POOLING = False
@@ -327,13 +338,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_POST = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'giakinhfullstack@gmail.com'
-EMAIL_HOST_PASSWORD = 'giakinh0823'
 
 
 
