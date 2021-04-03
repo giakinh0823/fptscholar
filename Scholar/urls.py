@@ -23,6 +23,7 @@ from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LogoutView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     #home
